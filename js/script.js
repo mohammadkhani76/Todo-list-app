@@ -163,3 +163,15 @@ darkMode.addEventListener("click", () => {
     heading1.style.color = "black";
   }
 });
+
+// وقتی کاربر روی فیلد فوکوس کرد، نوعش به date تبدیل می‌شود
+taskDueDate.addEventListener("focus", () => {
+  taskDueDate.type = "date";
+});
+
+// وقتی کاربر از فیلد خارج شد و مقدار خالی بود، دوباره placeholder نمایش داده شود
+taskDueDate.addEventListener("blur", () => {
+  if (!taskDueDate.value) {
+    taskDueDate.type = "text";
+  }
+});
