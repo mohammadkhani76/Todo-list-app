@@ -164,6 +164,14 @@ darkMode.addEventListener("click", () => {
   }
 });
 flatpickr("#taskDueDate", {
-  dateFormat: "Y/m/d", // فرمت تاریخ
-  allowInput: true, // اجازه تایپ دستی هم بده
+  dateFormat: "Y/m/d",
+  allowInput: true,
+  onReady: (selectedDates, dateStr, instance) => {
+    instance.input.placeholder = "YYYY/MM/DD"; // دوباره placeholder بذار
+  },
+  onChange: (selectedDates, dateStr, instance) => {
+    if (!dateStr) {
+      instance.input.placeholder = "YYYY/MM/DD"; // اگه خالی شد، placeholder نشون بده
+    }
+  },
 });
