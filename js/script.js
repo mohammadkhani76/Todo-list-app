@@ -45,7 +45,7 @@ function displayTasks(array) {
       task.completed ? "completed" : ""
     }" draggable="true" data-index="${index}">
         <p>${task.title} - Due: ${task.date}</p>
-        <div>
+        <div class="task-btn">
           <button class="complete-btn">${
             task.completed ? "Completed" : "Complete"
           }</button>

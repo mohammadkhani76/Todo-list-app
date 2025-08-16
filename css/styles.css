@@ -260,6 +260,12 @@ button:hover {
 .edit-btn:active {
   background-color: #eb6f02; /* نارنجی تیره‌تر هنگام کلیک */
 }
+.task-btn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
 /* Responsive design */
 @media (max-width: 600px) {
   header {
