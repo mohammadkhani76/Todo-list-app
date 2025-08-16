@@ -50,7 +50,7 @@ A simple web application for managing tasks with features like adding, deleting,
 
 Feel free to reach out:
 
-- GitHub: https://github.com/mohammadkhani76/
+- GitHub: https://github.com/mohammadkhani76/Todo-list-app.git
 - Email: nazanin.khani2@gmail.com
 
 ---
