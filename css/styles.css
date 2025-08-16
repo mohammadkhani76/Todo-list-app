@@ -239,6 +239,27 @@ button:hover {
 .completed span {
   text-decoration: line-through;
 }
+
+/* edit btn */
+.edit-btn {
+  padding: 10px 15px;
+  background-color: #ffa500; /* نارنجی روشن برای ادیت */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+.edit-btn:hover {
+  background-color: #ff7800;
+  /* نارنجی تیره‌تر هنگام هاور */
+}
+
+.edit-btn:active {
+  background-color: #eb6f02; /* نارنجی تیره‌تر هنگام کلیک */
+}
 /* Responsive design */
 @media (max-width: 600px) {
   header {

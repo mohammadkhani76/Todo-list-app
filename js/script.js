@@ -50,6 +50,8 @@ function displayTasks(array) {
             task.completed ? "Completed" : "Complete"
           }</button>
           <button class="delete-btn">Delete</button>
+          <button class="edit-btn">Edit</button>
+
         </div>
       </div>
     `;
@@ -72,6 +74,19 @@ function displayTasks(array) {
     btn.addEventListener("click", () => {
       array.splice(i, 1); // حذف تسک از آرایه
       renderTasks(); // رندر مجدد
+    });
+  });
+  //
+  // Edit
+  const editButtons = document.querySelectorAll(".edit-btn");
+  editButtons.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      const task = array[i]; // گرفتن تسک مربوط به این دکمه
+      const newText = prompt("ویرایش عنوان تسک", task.title);
+      if (newText !== null && newText.trim() !== "") {
+        task.title = newText; // تغییر عنوان تسک
+        renderTasks(); // رندر مجدد لیست
+      }
     });
   });
 }
