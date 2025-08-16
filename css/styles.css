@@ -267,4 +267,9 @@ button:hover {
   #exportTasksBtn {
     width: 100%;
   }
+  .task {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
 }
