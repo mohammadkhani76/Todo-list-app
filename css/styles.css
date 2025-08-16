@@ -26,12 +26,23 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: brown;
+  padding: 10px;
 }
 
 #addTaskSection {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  padding: 10px;
+  background: burlywood;
+}
+#filterSection {
+  background-color: cyan;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  flex-wrap: wrap;
 }
 
 #addTaskSection input,
@@ -86,8 +97,7 @@ header {
 }
 
 button {
-  height: 53px;
-  padding: 10px 20px;
+  padding: 20px;
   background-color: #007bff;
   color: white;
   border: none;
@@ -175,7 +185,6 @@ button:hover {
 /* دکمه خروجی گرفتن */
 #exportTasksBtn {
   background-color: #ffa500;
-  height: 42px;
 }
 
 #exportTasksBtn:hover {
@@ -235,7 +244,30 @@ button:hover {
 }
 /* Responsive design */
 @media (max-width: 600px) {
+  header {
+    overflow: auto;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+  header h1 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
   #addTaskSection {
     flex-direction: column;
+    overflow: auto;
+  }
+  #filterSection {
+    flex-direction: column;
+    width: 100%;
+  }
+  #searchTasks {
+    max-width: 100%;
+  }
+  #sortByDate,
+  #filterPriority,
+  #exportTasksBtn {
+    width: 100%;
   }
 }
