@@ -7,7 +7,7 @@ const taskPriority = document.querySelector("#taskPriority"); // فیلد اول
 const taskNotes = document.querySelector("#taskNotes"); // فیلد یادداشت
 const addTaskBtn = document.querySelector("#addTaskBtn"); // دکمه افزودن تسک
 const taskCategories = document.querySelector("#taskCategories"); // کانتینر لیست تسک‌ها
-
+const exportTasksBtn = document.querySelector("#exportTasksBtn");
 // آرایه اصلی برای نگهداری تسک‌ها
 let tasks = [];
 
@@ -124,6 +124,18 @@ function applyFilters() {
   displayTasks(filteredTasks);
 }
 
+// خروجی گرفتن از لیست تسک‌ها به صورت فایل PDF با jsPDF
+exportTasksBtn.addEventListener("click", () => {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  let yoffset = 10;
+  tasks.forEach((task) => {
+    const taskcontent = `${task.title} - Due: ${task.date} - Priority: ${task.priority} - Description:${task.notes}`;
+    doc.text(taskcontent, 10, yoffset);
+    yoffset = yoffset + 10;
+  });
+  doc.save("tasks.pdf");
+});
 // حالت تاریک
 darkMode.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode"); // فعال/غیرفعال کردن کلاس تاریک
