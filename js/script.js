@@ -163,15 +163,4 @@ darkMode.addEventListener("click", () => {
     heading1.style.color = "black";
   }
 });
-flatpickr("#taskDueDate", {
-  dateFormat: "Y/m/d",
-  allowInput: true,
-  onReady: (selectedDates, dateStr, instance) => {
-    instance.input.placeholder = "YYYY/MM/DD"; // دوباره placeholder بذار
-  },
-  onChange: (selectedDates, dateStr, instance) => {
-    if (!dateStr) {
-      instance.input.placeholder = "YYYY/MM/DD"; // اگه خالی شد، placeholder نشون بده
-    }
-  },
-});
+flatpickr("#taskDueDate", { dateFormat: "Y/m/d" });
