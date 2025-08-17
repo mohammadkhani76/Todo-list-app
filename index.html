@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <!-- <link
+    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </head>
   <body>
     <div class="container">
@@ -22,17 +22,8 @@
       <section id="addTaskSection">
         <input type="text" id="taskTitle" placeholder="Task Title" />
         <!-- <input type="date" id="taskDueDate" placeholder="YYYY/MM/DD" /> -->
-        <!-- <input type="text" id="taskDueDate" placeholder="YYYY/MM/DD" /> -->
-        <input
-          id="dob"
-          type="text"
-          placeholder="YYYY-MM-DD"
-          inputmode="numeric"
-          pattern="\d{4}-\d{2}-\d{2}"
-          autocomplete="bday"
-          onfocus="this.type='date'"
-          onblur="if(!this.value) this.type='text'"
-        />
+        <input type="text" id="taskDueDate" placeholder="YYYY/MM/DD" />
+
         <select id="taskPriority">
           <option value="low">Low</option>
           <option value="medium">Medium</option>

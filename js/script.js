@@ -163,4 +163,4 @@ darkMode.addEventListener("click", () => {
     heading1.style.color = "black";
   }
 });
-// flatpickr("#taskDueDate", { dateFormat: "Y/m/d" });
+flatpickr("#taskDueDate", { dateFormat: "Y/m/d" });
