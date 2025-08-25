@@ -45,12 +45,19 @@ A simple web application for managing tasks with features like adding, deleting,
 
 ---
 
+## Live Demo
+
+Check out the live version of the project here:  
+[To-Do List Web App](https://todo-list-app-one-topaz.vercel.app/)
+
+---
 
 ## Contact
 
 Feel free to reach out:
 
 - GitHub: https://github.com/mohammadkhani76/Todo-list-app.git
+- LinkedIn: https://www.linkedin.com/in/nazanin-mohammadkhani76
 - Email: nazanin.khani2@gmail.com
 
 ---
