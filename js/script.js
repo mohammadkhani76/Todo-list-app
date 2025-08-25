@@ -10,7 +10,22 @@ const taskCategories = document.querySelector("#taskCategories"); // کانتی�
 const exportTasksBtn = document.querySelector("#exportTasksBtn");
 // آرایه اصلی برای نگهداری تسک‌ها
 let tasks = [];
+// ذخیره local storage
+function saveTolocalStorage() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 
+// خواندن local storage
+function loadFromLocalStorage() {
+  // const load = localStorage.getItem("tasks");
+  // if (load) {
+  //   tasks = JSON.parse(load);
+  // } else {
+  //   tasks = [];
+  // }
+
+  tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+}
 // اضافه کردن تسک جدید
 addTaskBtn.addEventListener("click", () => {
   if (taskTitle.value.trim() === "") {
@@ -29,6 +44,7 @@ addTaskBtn.addEventListener("click", () => {
   };
 
   tasks.push(task); // اضافه کردن تسک به آرایه اصلی
+  saveTolocalStorage();
   console.log(tasks);
   renderTasks(); // رندر مجدد لیست تسک‌ها
   clearData(); // پاک کردن فیلدهای فرم
@@ -65,6 +81,7 @@ function displayTasks(array) {
       const task = array[i]; // دریافت تسک مرتبط با دکمه
       task.completed = !task.completed; // تغییر وضعیت تکمیل
       renderTasks(); // رندر مجدد
+      saveTolocalStorage();
     });
   });
 
@@ -74,6 +91,7 @@ function displayTasks(array) {
     btn.addEventListener("click", () => {
       array.splice(i, 1); // حذف تسک از آرایه
       renderTasks(); // رندر مجدد
+      saveTolocalStorage();
     });
   });
   //
@@ -86,6 +104,7 @@ function displayTasks(array) {
       if (newText !== null && newText.trim() !== "") {
         task.title = newText; // تغییر عنوان تسک
         renderTasks(); // رندر مجدد لیست
+        saveTolocalStorage();
       }
     });
   });
@@ -137,6 +156,7 @@ function applyFilters() {
 
   // نمایش تسک‌های فیلتر و مرتب‌شده
   displayTasks(filteredTasks);
+  saveTolocalStorage();
 }
 
 // خروجی گرفتن از لیست تسک‌ها به صورت فایل PDF با jsPDF
@@ -164,3 +184,8 @@ darkMode.addEventListener("click", () => {
   }
 });
 flatpickr("#taskDueDate", { dateFormat: "Y/m/d" });
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadFromLocalStorage();
+  renderTasks();
+});
