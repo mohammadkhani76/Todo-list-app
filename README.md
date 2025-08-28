@@ -4,6 +4,13 @@ A simple web application for managing tasks with features like adding, deleting,
 
 ---
 
+## Live Demo
+
+Check out the live version of the project here:  
+[To-Do List Web App](https://todo-list-app-one-topaz.vercel.app/)
+
+---
+
 ## Features
 
 - Add tasks with title, due date, priority, and optional notes.
@@ -42,13 +49,6 @@ A simple web application for managing tasks with features like adding, deleting,
 - Complete status changes and deletions are applied directly to the given array.
 - Filtering and sorting are applied before rendering the list.
 - Dark mode is activated by toggling the `dark-mode` class on the `body`.
-
----
-
-## Live Demo
-
-Check out the live version of the project here:  
-[To-Do List Web App](https://todo-list-app-one-topaz.vercel.app/)
 
 ---
 
