@@ -17,15 +17,9 @@ function saveTolocalStorage() {
 
 // خواندن local storage
 function loadFromLocalStorage() {
-  // const load = localStorage.getItem("tasks");
-  // if (load) {
-  //   tasks = JSON.parse(load);
-  // } else {
-  //   tasks = [];
-  // }
-
   tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 }
+
 // اضافه کردن تسک جدید
 addTaskBtn.addEventListener("click", () => {
   if (taskTitle.value.trim() === "") {
@@ -73,43 +67,33 @@ function displayTasks(array) {
     `;
     taskCategories.innerHTML += taskItem;
   });
-
-  // اضافه کردن رویداد به دکمه Complete
-  const completeButtons = document.querySelectorAll(".complete-btn");
-  completeButtons.forEach((btn, i) => {
-    btn.addEventListener("click", () => {
-      const task = array[i]; // دریافت تسک مرتبط با دکمه
-      task.completed = !task.completed; // تغییر وضعیت تکمیل
-      renderTasks(); // رندر مجدد
-      saveTolocalStorage();
-    });
-  });
-
-  // اضافه کردن رویداد به دکمه Delete
-  const deleteButtons = document.querySelectorAll(".delete-btn");
-  deleteButtons.forEach((btn, i) => {
-    btn.addEventListener("click", () => {
-      array.splice(i, 1); // حذف تسک از آرایه
-      renderTasks(); // رندر مجدد
-      saveTolocalStorage();
-    });
-  });
-  //
-  // Edit
-  const editButtons = document.querySelectorAll(".edit-btn");
-  editButtons.forEach((btn, i) => {
-    btn.addEventListener("click", () => {
-      const task = array[i]; // گرفتن تسک مربوط به این دکمه
-      const newText = prompt("ویرایش عنوان تسک", task.title);
-      if (newText !== null && newText.trim() !== "") {
-        task.title = newText; // تغییر عنوان تسک
-        renderTasks(); // رندر مجدد لیست
-        saveTolocalStorage();
-      }
-    });
-  });
 }
+// ساخت دکمه ها با event delegation
+taskCategories.addEventListener("click", (e) => {
+  const taskEl = e.target.closest(".task");
+  if (!taskEl) return;
 
+  const index = parseInt(taskEl.dataset.index);
+  const task = tasks[index];
+  // دکمه complete
+  if (e.target.classList.contains("complete-btn")) {
+    task.completed = !task.completed;
+  }
+  // دکمه delete
+  else if (e.target.classList.contains("delete-btn")) {
+    tasks.splice(index, 1);
+  }
+  // دکمه edit
+  else if (e.target.classList.contains("edit-btn")) {
+    const newText = prompt("ویرایش عنوان تسک", task.title);
+    if (newText !== null && newText.trim() !== "") {
+      task.title = newText;
+    }
+  }
+
+  renderTasks();
+  saveTolocalStorage();
+});
 // تابع رندر کل تسک‌ها (استفاده از آرایه اصلی)
 function renderTasks() {
   displayTasks(tasks);
@@ -156,7 +140,6 @@ function applyFilters() {
 
   // نمایش تسک‌های فیلتر و مرتب‌شده
   displayTasks(filteredTasks);
-  saveTolocalStorage();
 }
 
 // خروجی گرفتن از لیست تسک‌ها به صورت فایل PDF با jsPDF
